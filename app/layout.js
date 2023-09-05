@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['cyrillic'] })
 
 export const metadata = {
-  title: 'Тестовое приложение',
+  title: 'Главная | Next13 App',
   description: 'Тестовое приложение Next JS 13',
 }
 

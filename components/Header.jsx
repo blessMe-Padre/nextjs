@@ -7,9 +7,9 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Next13-test</h1>
 
             <ul className='flex gap-5'>
-                <li><Link href='/'>Главная</Link></li>
-                <li><Link href='/blog'>Блог</Link></li>
-                <li><Link href='/about'>О нас</Link></li>
+                <li className='text-xl'><Link href='/'>Главная</Link></li>
+                <li className='text-xl'><Link href='/blog'>Блог</Link></li>
+                <li className='text-xl'><Link href='/about'>О нас</Link></li>
             </ul>
 
 
