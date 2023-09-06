@@ -2,7 +2,14 @@ import Link from "next/link";
 
 
 async function getData() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        next: {
+            revalidate: 5,
+        }
+    });
+
+    if (!response.ok) throw new Error('Невозможно загрузить данные');
+
     return response.json();
 }
 
