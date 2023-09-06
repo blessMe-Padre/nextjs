@@ -13,9 +13,10 @@ module.exports = {
       'color-default-black': '#000000',
       'color-light-black': '#5E5D5C',
       'color-light-black-2': 'rgba(26, 26, 26, 0.70)',
-      'color-light-black-3': 'rgba(0, 0, 0, 0.40)',
+      'color-grey': 'rgb(243, 243, 246);',
       'color-blue': '#5278DA',
       'color-blue-light': '#203D8A',
+      'color-button': 'rgb(85, 179, 197)',
     },
 
     container: {
