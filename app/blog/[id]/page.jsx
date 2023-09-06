@@ -12,7 +12,6 @@ async function getData(id) {
     return response.json();
 }
 
-
 export default async function Post({ params: { id } }) {
     const post = await getData(id);
 

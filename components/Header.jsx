@@ -1,16 +1,18 @@
-import Link from 'next/link';
 import React from 'react';
+import Navigation from './Navigation';
+
+const navItems = [
+    { label: 'Главная', href: '/' },
+    { label: 'Блог', href: '/blog' },
+    { label: 'О нас', href: '/about' },
+];
+
 
 const Header = () => {
     return (
         <header className="container bg-gray-100 p-4 min-h-[60px] flex items-center justify-between">
             <h1 className="text-2xl font-bold">Next13-test</h1>
-
-            <ul className='flex gap-5'>
-                <li className='text-xl hover:text-color-blue'><Link href='/'>Главная</Link></li>
-                <li className='text-xl hover:text-color-blue'><Link href='/blog'>Блог</Link></li>
-                <li className='text-xl hover:text-color-blue'><Link href='/about'>О нас</Link></li>
-            </ul>
+            <Navigation navItems={navItems} />
         </header>
     );
 };
