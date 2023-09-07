@@ -2,21 +2,23 @@ import Image from "next/image";
 import Counter from "./Counter";
 
 
-export default function ProductCart() {
+export default function ProductCart({ product }) {
+    const { img, title, price } = product;
+
     return (
         <div className="flex items-center justify-between gap-5 p-5 border-b-2">
             <div className="flex items-center justify-center">
                 <Image
-                    src={"/macbook.jpg"}
+                    src={`/${img}`}
                     width={100}
                     height={100}
                     alt="Picture of the author"
                     className=""
                 />
             </div>
-            <p>Apple MacBook Air 13</p>
+            <p>{title}</p>
             <Counter />
-            <p>400 000 руб</p>
+            <p>{price} руб</p>
             <div className="flex items-center justify-center">
                 <button>
                     <Image

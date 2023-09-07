@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import CartOrder from "@/components/CartOrder";
 import ProductCart from "@/components/ProductCart";
 
@@ -37,6 +41,16 @@ export const metadata = {
 }
 
 export default function About() {
+    
+const [cart] = useState(dataCart);
+
+const products = cart.map((product) => {
+    return <ProductCart
+        product={product}
+        key={product.id}
+    />;
+});
+
     return (
         <>
             <h1 className="text-3xl font-bold mb-8">
@@ -45,7 +59,7 @@ export default function About() {
 
             <div className="grid grid-cols-[65%_30%] gap-8 py-8 border-t-2">
                 <div>
-                    <ProductCart />
+                    {products}
                 </div>
                 <CartOrder />
             </div>
