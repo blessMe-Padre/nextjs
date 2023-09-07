@@ -1,4 +1,8 @@
+"use client"; 
+
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Navigation from './Navigation';
 import Image from "next/image";
 import Link from 'next/link';
@@ -10,10 +14,10 @@ const navItems = [
     { label: 'Магазин', href: '/shop' },
 ];
 
-
 const Header = () => {
-
-    const totalItem = 3;
+  
+    const item = useSelector(state => state.cart.itemInCart);
+    const totalItem = item.length;
 
     return (
         <header className="container bg-gray-100 p-4 min-h-[60px] flex items-center justify-between">

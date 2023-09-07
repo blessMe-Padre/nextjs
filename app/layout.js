@@ -15,13 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className="bg-color-shark text-color-aliceblue h-screen grid grid-rows-[auto_1fr_auto]" >
+        <Providers>
           <Header /> 
             <main className='container'>
-              <Providers>
                 {children}
-              </Providers>
             </main>
           <Footer />
+        </Providers>
       </body>
     </html>
   )

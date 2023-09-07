@@ -1,7 +1,5 @@
 "use client";
 
-// import { useSelector } from 'react-redux';
-
 const dataCart = [
     {
         id: 1,
@@ -32,13 +30,14 @@ const dataCart = [
     },
 ];
 
+import { useSelector } from 'react-redux';
 import { useState } from "react";
+
 
 import ProductItem from "@/components/ProductItem";
 
 export default function Shop() {
     const [cart] = useState(dataCart);
-
     // const items = useSelector(state => state.cart.itemInCart);
 
     const products = cart.map((product) => {
@@ -47,7 +46,6 @@ export default function Shop() {
             key={product.id}
         />;
     });
-
 
     return (
         <>
