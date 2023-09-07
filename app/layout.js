@@ -1,7 +1,10 @@
-import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+"use client"; 
+import './globals.css';
 
+import {Providers} from '../redux/provider';
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Главная | Next13 App',
@@ -12,11 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className="bg-color-shark text-color-aliceblue h-screen grid grid-rows-[auto_1fr_auto]" >
-        <Header />
-        <main className='container'>
-          {children}
-        </main>
-        <Footer />
+          <Header /> 
+            <main className='container'>
+              <Providers>
+                {children}
+              </Providers>
+            </main>
+          <Footer />
       </body>
     </html>
   )

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import CartOrder from "@/components/CartOrder";
 import ProductCart from "@/components/ProductCart";
 
@@ -40,14 +39,21 @@ export const metadata = {
     description: 'Тестовое приложение Next JS 13',
 }
 
-export default function About() {
+export default function Cart() {
     
-const [cart] = useState(dataCart);
+const [cart, setCart] = useState(dataCart);
+
+// удаление товара из корзины
+const deleteProduct = (id) => {
+    console.log('delete', id);
+    setCart((cart) => cart.filter((product) => id !== product.id));
+}
 
 const products = cart.map((product) => {
     return <ProductCart
         product={product}
         key={product.id}
+        deleteProduct={deleteProduct}
     />;
 });
 

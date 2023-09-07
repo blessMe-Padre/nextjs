@@ -24,9 +24,9 @@ export default async function Post({ params: { id } }) {
     const post = await getData(id);
 
     return (
-        <>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-        </>
+        <div className="py-20">
+            <h1 className="text-3xl mb-7">Заголовок поста: {post.title}</h1>
+            <p className="text-lg">Текст поста: {post.body}</p>
+        </div>
     );
 }
