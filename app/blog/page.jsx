@@ -24,16 +24,16 @@ export default async function Blog() {
 
     return (
         <>
-            <h1 className="text-3xl font-bold underline text">
+            <h1 className="text-3xl font-bold mb-8">
                 страница приложения "Блог"
             </h1>
-            <ul>
+            <ol className="text list-decimal">
                 {posts.map((post) => (
-                    <li key={post.id}>
+                    <li className="text-lg py-1 underline" key={post.id}>
                         <Link href={`/blog/${post.id}`}>{post.title}</Link>
                     </li>
                 ))}
-            </ul>
+            </ol>
         </>
     );
 }

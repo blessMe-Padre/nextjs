@@ -20,7 +20,7 @@ const Header = () => {
     const totalItem = item.length;
 
     return (
-        <header className="container bg-gray-100 p-4 min-h-[60px] flex items-center justify-between">
+        <header className="container bg-gray-100 p-4 min-h-[60px] flex items-center justify-between mb-8">
             <h1 className="text-2xl font-bold">Next13-test</h1>
             <Navigation navItems={navItems} />
 
