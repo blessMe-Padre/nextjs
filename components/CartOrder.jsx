@@ -19,7 +19,7 @@ export default function CartOrder({ total }) {
             </div>
             <div className="flex justify-between mb-7">
                 <span>Ваша скидка:</span>
-                <span>25%</span>
+                <span>{discount}%</span>
             </div>
             <div>
                 <p className="font-bold text-xl mb-2">Итого</p>

@@ -1,5 +1,4 @@
 "use client";
-
 const dataCart = [
     {
         id: 1,
@@ -31,9 +30,12 @@ const dataCart = [
 ];
 
 import { useState } from "react";
-
-
 import ProductItem from "@/components/ProductItem";
+
+export const metadata = {
+    title: 'Магазин | Next13 App',
+    description: 'Тестовое приложение Next JS 13',
+}
 
 export default function Shop() {
     const [cart] = useState(dataCart);
