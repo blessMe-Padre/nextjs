@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import { deleteItemFromCart } from './../../redux/reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,8 +14,20 @@ export const metadata = {
 
 export default function Cart() {
     const items = useSelector(state => state.cart.itemInCart);
-    const [cart, setCart] = useState(items);
+    const [cart, setCart] = useState(() => items);
     const dispatch = useDispatch();
+
+    const [total, setTotal] = useState({
+        price: cart.reduce((prev, curr) => prev + curr.priceTotal, 0),
+        count: cart.reduce((prev, curr) => prev + curr.count, 0)
+    });
+
+    useEffect(() => {
+        setTotal({
+            price: cart.reduce((prev, curr) => prev + curr.priceTotal, 0),
+            count: cart.reduce((prev, curr) => prev + curr.count, 0),
+        });
+    }, [cart]);
     
     // удаление товара из корзины
     const deleteProduct = (id) => {
@@ -23,11 +35,66 @@ export default function Cart() {
         dispatch(deleteItemFromCart(id));
     }
 
+    // увеличения счетчика количества продукта
+    function increase(id) {
+        setCart((cart) => {
+            return cart.map((product) => {
+                if (product.id === id) {
+                    return {
+                        ...product,
+                        count: product.count + 1,
+                        priceTotal: (product.count + 1) * product.price,
+                    };
+                }
+                return product;
+            });
+        });
+    }
+
+    // уменьшение счетчика количества продукта
+    const decrease = (id) => {
+        setCart((cart) => {
+            return cart.map((product) => {
+                if (product.id === id) {
+
+                    // const newCount = product.count - 1 > 1 ? product.count - 1 : 1;
+                    const newCount = product.count - 1 >= 1 ? product.count - 1 : 1;
+
+                    return {
+                        ...product,
+                        count: newCount,
+                        priceTotal: newCount * product.price,
+                    };
+                }
+                return product
+            })
+        })
+    }
+
+    // обработчик ввода в инпут
+    const changeValue = (id, value) => {
+        setCart((cart) => {
+            return cart.map((product) => {
+                if (product.id === id) {
+                    return {
+                        ...product,
+                        count: value,
+                        priceTotal: value * product.price
+                    }
+                }
+                return product
+            })
+        })
+    }
+
     const products = cart.map((product) => {
         return <ProductCart
             product={product}
             key={product.id}
             deleteProduct={deleteProduct}
+           changeValue={changeValue}
+            increase={increase}
+            decrease={decrease}
         />;
     });
 
@@ -47,7 +114,7 @@ export default function Cart() {
                 )
                 : "Ваша корзина пуста"
             }
-                <CartOrder />
+                <CartOrder total={total} />
             </div>
         </>
     )

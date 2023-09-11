@@ -7,7 +7,7 @@ const dataCart = [
         title: 'Apple MacBook Air 13',
         count: 1,
         price: 100000,
-        priceTotal: 200000,
+        priceTotal: 100000,
         descriptions: 'Дисплей с диагональю 13,3 дюйма, подсветкой LED и технологией IPS; разрешение 2560×1600 пикселей  обеспечивает высокое качество цветопередачи с миллионами цветов',
     },
     {
@@ -30,7 +30,6 @@ const dataCart = [
     },
 ];
 
-import { useSelector } from 'react-redux';
 import { useState } from "react";
 
 
@@ -38,7 +37,6 @@ import ProductItem from "@/components/ProductItem";
 
 export default function Shop() {
     const [cart] = useState(dataCart);
-    // const items = useSelector(state => state.cart.itemInCart);
 
     const products = cart.map((product) => {
         return <ProductItem
