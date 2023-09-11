@@ -6,8 +6,7 @@ import Counter from "./Counter";
 
 export default function ProductCart({ product, deleteProduct, increase, decrease, changeValue }) {
     const { img, title, count, id, price, priceTotal } = product;
-
-    console.log(product);
+    const priceFormatter = new Intl.NumberFormat();
 
     return (
         <div className="flex items-center justify-between gap-5 p-5 border-b-2">
@@ -28,7 +27,7 @@ export default function ProductCart({ product, deleteProduct, increase, decrease
                 decrease={decrease}
                 id={id}
             />
-            <p>{priceTotal} руб</p>
+            <p>{priceFormatter.format(priceTotal)} руб</p>
             <div className="flex items-center justify-center">
                 <button onClick={ () =>{deleteProduct(id);} }>
                     <Image
