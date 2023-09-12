@@ -24,14 +24,15 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Next13-test</h1>
             <Navigation navItems={navItems} />
 
-            <Link href="/cart" className='relative'>
+            <Link href="/cart" className='relative flex border-2 rounded p-2'>
                 <Image
                     src="./cart.svg"
                     width={24}
                     height={24}
                     alt="Picture of the author"
-                    className=""
-                />
+                    className="mr-2"
+                    />
+                Корзина
                 {totalItem > 0 ? (<span className='card-span'>{totalItem}</span>) : null}
             </Link>
 
