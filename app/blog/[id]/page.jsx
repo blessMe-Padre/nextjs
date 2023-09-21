@@ -1,4 +1,3 @@
-
 export async function generateMetadata({ params: { id } }) {
     const post = await getData(id);
 
