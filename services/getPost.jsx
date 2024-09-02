@@ -6,7 +6,7 @@ export const getAllPosts = async () => {
     return response.json();
 };
 
-export const getPostsBySearch = async ({ search }) => {
+export const getPostsBySearch = async (search) => {
     const response = await fetch(
         `https://jsonplaceholder.typicode.com/posts?q=${search}`
     );

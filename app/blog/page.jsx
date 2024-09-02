@@ -15,6 +15,8 @@ export default function Blog() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    console.log(posts);
+
     useEffect(() => {
         getAllPosts()
             .then(setPosts)
